@@ -1,12 +1,10 @@
 {
   "name": "ficor-advisors-website",
   "version": "1.0.0",
-  "description": "FICOR Advisors LLP Official Website - 360 Degree Compliance Support & Corporate Governance Practice",
-  "main": "server.js",
+  "description": "FICOR Advisors LLP Official Website",
   "scripts": {
-    "start": "node server.js",
+    "dev": "node local-dev-server.js",
     "build": "node generate_pages.js"
   },
-  "author": "FICOR Advisors LLP",
-  "license": "ISC"
+  "author": "FICOR Advisors LLP"
 }
