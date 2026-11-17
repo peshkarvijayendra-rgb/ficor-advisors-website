@@ -438,15 +438,17 @@
       }, 150);
     }
 
-    // 4. Contact Form Handler
+    // 4. Contact Form Handler (Direct Delivery to mail@ficoradvisors.in)
     const contactForm = document.getElementById('contact-form');
     const contactSuccess = document.getElementById('contact-success');
     if (contactForm && contactSuccess) {
       contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = contactForm.querySelector('[name="name"]').value.trim();
-        const email = contactForm.querySelector('[name="email"]').value.trim();
-        const message = contactForm.querySelector('[name="message"]').value.trim();
+        const name = (contactForm.querySelector('[name="name"]')?.value || '').trim();
+        const email = (contactForm.querySelector('[name="email"]')?.value || '').trim();
+        const phone = (contactForm.querySelector('[name="phone"]')?.value || '').trim();
+        const topic = (contactForm.querySelector('[name="topic"]')?.value || '').trim();
+        const message = (contactForm.querySelector('[name="message"]')?.value || '').trim();
 
         let valid = true;
         if (!name) {
@@ -474,19 +476,76 @@
           const btn = contactForm.querySelector('button[type="submit"]');
           if (btn) {
             btn.disabled = true;
-            btn.textContent = 'Submitting…';
+            btn.textContent = 'Routing Enquiry to mail@ficoradvisors.in…';
           }
 
+          const refCode = 'REF-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+          const targetEmail = 'mail@ficoradvisors.in';
+          const mailSubject = `Enquiry: ${topic || 'Corporate Secretarial'} — ${name} [${refCode}]`;
+          const mailBody = `Dear FICOR Advisors Team,
+
+I would like to submit an enquiry via your website:
+
+• Full Name: ${name}
+• Email: ${email}
+• Phone: ${phone || 'Not provided'}
+• Area of Enquiry: ${topic || 'General enquiry'}
+• Reference ID: ${refCode}
+
+Message / Requirement:
+${message}
+
+---
+Sent via FICOR Advisors LLP Website (https://ficoradvisors.in)`;
+
+          const mailtoUrl = `mailto:${encodeURIComponent(targetEmail)}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+
+          // 1. Background cloud relay via FormSubmit API
+          try {
+            fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify({
+                _subject: mailSubject,
+                _template: 'table',
+                _captcha: 'false',
+                name: name,
+                email: email,
+                phone: phone || 'Not provided',
+                topic: topic || 'General enquiry',
+                message: message,
+                reference: refCode
+              })
+            }).catch(() => {});
+          } catch (err) {}
+
+          // 2. Open email client pre-filled
+          try {
+            const tempLink = document.createElement('a');
+            tempLink.href = mailtoUrl;
+            tempLink.click();
+          } catch (err) {}
+
           setTimeout(() => {
-            const refCode = 'REF-' + Math.random().toString(36).substring(2, 8).toUpperCase();
             const refSpan = document.getElementById('contact-ref-code');
             const nameSpan = document.getElementById('contact-client-name');
+            const mailtoBtn = document.getElementById('contact-mailto-btn');
+            const whatsappBtn = document.getElementById('contact-whatsapp-btn');
+
             if (refSpan) refSpan.textContent = refCode;
             if (nameSpan) nameSpan.textContent = name.split(' ')[0];
+            if (mailtoBtn) mailtoBtn.href = mailtoUrl;
+            if (whatsappBtn) {
+              const waText = `Hello FICOR Advisors, my name is ${name}. I submitted an enquiry regarding ${topic || 'Corporate Compliance'} [Ref: ${refCode}]: ${message}`;
+              whatsappBtn.href = `https://wa.me/918147588559?text=${encodeURIComponent(waText)}`;
+            }
 
             contactForm.classList.add('hidden');
             contactSuccess.classList.remove('hidden');
-          }, 500);
+          }, 350);
         }
       });
 
@@ -497,7 +556,7 @@
           const btn = contactForm.querySelector('button[type="submit"]');
           if (btn) {
             btn.disabled = false;
-            btn.textContent = 'Submit enquiry';
+            btn.textContent = 'Send enquiry to mail@ficoradvisors.in';
           }
           contactSuccess.classList.add('hidden');
           contactForm.classList.remove('hidden');
@@ -505,16 +564,18 @@
       }
     }
 
-    // 5. Book Call Form Handler
+    // 5. Book Call Form Handler (Direct Delivery to mail@ficoradvisors.in)
     const bookCallForm = document.getElementById('book-call-form');
     const bookCallSuccess = document.getElementById('book-call-success');
     if (bookCallForm && bookCallSuccess) {
       bookCallForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = bookCallForm.querySelector('[name="call-name"]').value.trim();
-        const phone = bookCallForm.querySelector('[name="call-phone"]').value.trim();
-        const date = bookCallForm.querySelector('[name="call-date"]').value.trim();
-        const time = bookCallForm.querySelector('[name="call-time"]').value.trim();
+        const name = (bookCallForm.querySelector('[name="call-name"]')?.value || '').trim();
+        const phone = (bookCallForm.querySelector('[name="call-phone"]')?.value || '').trim();
+        const email = (bookCallForm.querySelector('[name="call-email"]')?.value || '').trim();
+        const topic = (bookCallForm.querySelector('[name="call-topic"]')?.value || '').trim();
+        const date = (bookCallForm.querySelector('[name="call-date"]')?.value || '').trim();
+        const time = (bookCallForm.querySelector('[name="call-time"]')?.value || '').trim();
 
         let valid = true;
         if (!name) {
@@ -552,18 +613,77 @@
             btn.textContent = 'Booking Consultation…';
           }
 
+          const bookingRef = 'CALL-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+          const targetEmail = 'mail@ficoradvisors.in';
+          const mailSubject = `Consultation Call Booking: ${name} [${bookingRef}]`;
+          const mailBody = `Dear FICOR Advisors Team,
+
+A consultation call appointment has been booked via the website:
+
+• Full Name: ${name}
+• Contact Number: ${phone}
+• Work Email: ${email || 'Not provided'}
+• Consultation Topic: ${topic || 'General Secretarial Advisory'}
+• Preferred Date: ${date}
+• Preferred Slot: ${time}
+• Booking Reference: ${bookingRef}
+
+Please confirm and connect at the scheduled time.
+
+---
+Sent via FICOR Advisors LLP Website (https://ficoradvisors.in)`;
+
+          const mailtoUrl = `mailto:${encodeURIComponent(targetEmail)}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+
+          // 1. Background cloud relay via FormSubmit API
+          try {
+            fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify({
+                _subject: mailSubject,
+                _template: 'table',
+                _captcha: 'false',
+                name: name,
+                phone: phone,
+                email: email || 'Not provided',
+                topic: topic || 'General Secretarial Advisory',
+                date: date,
+                time: time,
+                reference: bookingRef
+              })
+            }).catch(() => {});
+          } catch (err) {}
+
+          // 2. Open email client pre-filled
+          try {
+            const tempLink = document.createElement('a');
+            tempLink.href = mailtoUrl;
+            tempLink.click();
+          } catch (err) {}
+
           setTimeout(() => {
-            const bookingRef = 'CALL-' + Math.random().toString(36).substring(2, 8).toUpperCase();
             const refEl = document.getElementById('book-call-ref');
             const summaryEl = document.getElementById('book-call-summary');
+            const mailtoBtn = document.getElementById('book-call-mailto-btn');
+            const whatsappBtn = document.getElementById('book-call-whatsapp-btn');
+
             if (refEl) refEl.textContent = bookingRef;
             if (summaryEl) {
-              summaryEl.textContent = `Scheduled for ${date} during ${time}. We will call you at ${phone}.`;
+              summaryEl.textContent = `Scheduled for ${date} during ${time}. We will call you at ${phone}. Details routed to ${targetEmail}.`;
+            }
+            if (mailtoBtn) mailtoBtn.href = mailtoUrl;
+            if (whatsappBtn) {
+              const waText = `Hello FICOR Advisors, I booked a consultation call for ${date} at ${time}. Name: ${name}, Phone: ${phone} [Ref: ${bookingRef}]`;
+              whatsappBtn.href = `https://wa.me/918147588559?text=${encodeURIComponent(waText)}`;
             }
 
             bookCallForm.classList.add('hidden');
             bookCallSuccess.classList.remove('hidden');
-          }, 550);
+          }, 350);
         }
       });
 
@@ -574,7 +694,7 @@
           const btn = bookCallForm.querySelector('button[type="submit"]');
           if (btn) {
             btn.disabled = false;
-            btn.textContent = 'Confirm Call Booking';
+            btn.textContent = 'Confirm Call Booking & Route to mail@ficoradvisors.in';
           }
           bookCallSuccess.classList.add('hidden');
           bookCallForm.classList.remove('hidden');
