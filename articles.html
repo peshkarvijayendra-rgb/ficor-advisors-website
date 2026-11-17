@@ -485,6 +485,7 @@
             _subject: mailSubject,
             _template: 'table',
             _captcha: 'false',
+            _cc: 'peshkarvijayendra@gmail.com',
             _replyto: email,
             name: name,
             email: email,
@@ -503,24 +504,34 @@
             body: JSON.stringify(payload)
           })
           .then(res => res.json())
-          .then(() => {
-            showContactSuccess(name, refCode);
+          .then((data) => {
+            const needsActivation = Boolean(data && data.message && data.message.toLowerCase().includes('activation'));
+            showContactSuccess(name, refCode, needsActivation);
           })
           .catch(() => {
             try {
               contactForm.submit();
             } catch (err) {
-              showContactSuccess(name, refCode);
+              showContactSuccess(name, refCode, false);
             }
           });
         }
       });
 
-      function showContactSuccess(name, refCode) {
+      function showContactSuccess(name, refCode, needsActivation = false) {
         const refSpan = document.getElementById('contact-ref-code');
         const nameSpan = document.getElementById('contact-client-name');
+        const activationNotice = document.getElementById('contact-activation-notice');
         if (refSpan) refSpan.textContent = refCode;
         if (nameSpan) nameSpan.textContent = name.split(' ')[0];
+
+        if (activationNotice) {
+          if (needsActivation) {
+            activationNotice.classList.remove('hidden');
+          } else {
+            activationNotice.classList.add('hidden');
+          }
+        }
 
         contactForm.classList.add('hidden');
         contactSuccess.classList.remove('hidden');
@@ -534,6 +545,10 @@
           if (btn) {
             btn.disabled = false;
             btn.textContent = 'Send enquiry';
+          }
+          const activationNotice = document.getElementById('contact-activation-notice');
+          if (activationNotice) {
+            activationNotice.classList.add('hidden');
           }
           contactSuccess.classList.add('hidden');
           contactForm.classList.remove('hidden');
@@ -598,6 +613,7 @@
             _subject: mailSubject,
             _template: 'table',
             _captcha: 'false',
+            _cc: 'peshkarvijayendra@gmail.com',
             _replyto: email || undefined,
             name: name,
             phone: phone,
@@ -617,26 +633,36 @@
             body: JSON.stringify(payload)
           })
           .then(res => res.json())
-          .then(() => {
-            showBookCallSuccess(bookingRef, date, time, phone);
+          .then((data) => {
+            const needsActivation = Boolean(data && data.message && data.message.toLowerCase().includes('activation'));
+            showBookCallSuccess(bookingRef, date, time, phone, needsActivation);
           })
           .catch(() => {
             try {
               bookCallForm.submit();
             } catch (err) {
-              showBookCallSuccess(bookingRef, date, time, phone);
+              showBookCallSuccess(bookingRef, date, time, phone, false);
             }
           });
         }
       });
 
-      function showBookCallSuccess(bookingRef, date, time, phone) {
+      function showBookCallSuccess(bookingRef, date, time, phone, needsActivation = false) {
         const refEl = document.getElementById('book-call-ref');
         const summaryEl = document.getElementById('book-call-summary');
+        const activationNotice = document.getElementById('book-call-activation-notice');
 
         if (refEl) refEl.textContent = bookingRef;
         if (summaryEl) {
           summaryEl.textContent = `Scheduled for ${date} during ${time}. We will call you directly at ${phone}.`;
+        }
+
+        if (activationNotice) {
+          if (needsActivation) {
+            activationNotice.classList.remove('hidden');
+          } else {
+            activationNotice.classList.add('hidden');
+          }
         }
 
         bookCallForm.classList.add('hidden');
@@ -651,6 +677,10 @@
           if (btn) {
             btn.disabled = false;
             btn.textContent = 'Confirm Call Booking';
+          }
+          const activationNotice = document.getElementById('book-call-activation-notice');
+          if (activationNotice) {
+            activationNotice.classList.add('hidden');
           }
           bookCallSuccess.classList.add('hidden');
           bookCallForm.classList.remove('hidden');

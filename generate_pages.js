@@ -599,6 +599,14 @@ function getContactContent(relPath = "") {
               Our secretarial compliance desk will review your requirements and respond directly to your email address promptly.
             </p>
           </div>
+          <div id="contact-activation-notice" class="hidden mt-4 p-4 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs text-foreground space-y-1.5">
+            <p class="font-semibold text-amber-700 dark:text-amber-400 flex items-center gap-2">
+              <span>⚠️</span> One-Time Setup: Activation Link Sent to ${EMAIL}
+            </p>
+            <p class="text-muted-foreground leading-relaxed">
+              FormSubmit has sent a 1-click confirmation email to <strong>${EMAIL}</strong> (and a copy to <strong>peshkarvijayendra@gmail.com</strong>). Please click <strong>"Activate Form"</strong> in that email once so future submissions route automatically to your inbox.
+            </p>
+          </div>
         </div>
 
         <div class="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-border/50 text-xs text-muted-foreground">
@@ -614,6 +622,7 @@ function getContactContent(relPath = "") {
         <input type="hidden" name="_captcha" value="false"/>
         <input type="hidden" name="_template" value="table"/>
         <input type="hidden" name="_subject" value="New Website Enquiry — FICOR Advisors LLP"/>
+        <input type="hidden" name="_cc" value="peshkarvijayendra@gmail.com"/>
         <div class="grid gap-6 sm:grid-cols-2">
           <div>
             <label for="name" class="eyebrow block text-muted-foreground">Name *</label>
@@ -790,6 +799,14 @@ function getBookCallContent(relPath = "") {
               Your booking has been delivered directly to <strong class="text-foreground">${EMAIL}</strong>. Our consultant will prepare your briefing and call you at your requested time.
             </p>
           </div>
+          <div id="book-call-activation-notice" class="hidden mt-4 p-4 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs text-foreground space-y-1.5">
+            <p class="font-semibold text-amber-700 dark:text-amber-400 flex items-center gap-2">
+              <span>⚠️</span> One-Time Setup: Activation Link Sent to ${EMAIL}
+            </p>
+            <p class="text-muted-foreground leading-relaxed">
+              FormSubmit has sent a 1-click confirmation email to <strong>${EMAIL}</strong> (and a copy to <strong>peshkarvijayendra@gmail.com</strong>). Please click <strong>"Activate Form"</strong> in that email once to enable automatic forwarding.
+            </p>
+          </div>
         </div>
 
         <div class="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-border/50 text-xs text-muted-foreground">
@@ -805,6 +822,7 @@ function getBookCallContent(relPath = "") {
         <input type="hidden" name="_captcha" value="false"/>
         <input type="hidden" name="_template" value="table"/>
         <input type="hidden" name="_subject" value="New Call Consultation Booking — FICOR Advisors LLP"/>
+        <input type="hidden" name="_cc" value="peshkarvijayendra@gmail.com"/>
         <div class="grid gap-6 sm:grid-cols-2">
           <div>
             <label for="call-name" class="eyebrow block text-muted-foreground">Your Name *</label>
