@@ -314,26 +314,36 @@ function getServicesContent(relPath = "") {
   </div>
   <div class="mt-16 services-layout-grid">
     <nav aria-label="Service index" class="lg:sticky lg:top-28 lg:self-start">
-      <p class="eyebrow border-b border-border pb-3 text-muted-foreground">Practice Index</p>
+      <div class="flex items-center justify-between border-b border-border pb-3">
+        <p class="eyebrow text-muted-foreground">Practice Index</p>
+      </div>
       <ul class="mt-4 space-y-1">
         ${SERVICES.map((s, idx) => `
         <li>
-          <button type="button" data-service-index="${s.id}" class="flex w-full items-baseline gap-3 rounded-md px-2.5 py-2 text-left text-sm transition-colors ${idx === 0 ? 'bg-secondary font-medium text-foreground' : 'text-muted-foreground hover:bg-secondary/60 hover:text-foreground'}">
+          <button type="button" data-service-index="${s.id}" class="group flex w-full items-baseline gap-3 rounded-md px-2.5 py-2 text-left text-sm transition-colors cursor-pointer ${idx === 0 ? 'bg-secondary font-medium text-foreground' : 'text-muted-foreground hover:bg-secondary/60 hover:text-foreground'}">
             <span class="font-mono text-xs font-medium" style="color:var(--${s.color})">${s.id}</span>
-            <span>${s.title}</span>
+            <span class="group-hover:translate-x-0.5 transition-transform">${s.title}</span>
           </button>
         </li>`).join('')}
       </ul>
     </nav>
     <div class="border-t border-border">
+      <div class="flex items-center justify-between py-3 border-b border-border/60 text-xs text-muted-foreground">
+        <span class="font-mono uppercase tracking-wider">All 8 Practice Areas</span>
+        <div class="flex items-center gap-3 font-mono">
+          <button type="button" id="expand-all-services" class="hover:text-accent transition-colors cursor-pointer underline underline-offset-4">Expand all</button>
+          <span class="text-border">/</span>
+          <button type="button" id="collapse-all-services" class="hover:text-accent transition-colors cursor-pointer underline underline-offset-4">Collapse all</button>
+        </div>
+      </div>
       ${SERVICES.map((s, idx) => `
       <div class="reveal" style="transition-delay:${idx * 40}ms">
         <section id="service-${s.id}" class="border-b border-border scroll-mt-28">
           <h2>
-            <button type="button" data-service-toggle="${s.id}" aria-expanded="${idx === 0 ? 'true' : 'false'}" aria-controls="panel-${s.id}" class="group flex w-full items-center justify-between gap-6 py-7 text-left">
+            <button type="button" data-service-toggle="${s.id}" aria-expanded="${idx === 0 ? 'true' : 'false'}" aria-controls="panel-${s.id}" class="group flex w-full items-center justify-between gap-6 py-7 text-left cursor-pointer">
               <span class="flex items-baseline gap-5">
                 <span class="font-mono text-xs font-medium" style="color:var(--${s.color})">${s.id}</span>
-                <span class="font-display text-2xl leading-snug sm:text-[1.75rem] font-normal">${s.title}</span>
+                <span class="font-display text-2xl leading-snug sm:text-[1.75rem] font-normal group-hover:text-accent transition-colors">${s.title}</span>
               </span>
               <span aria-hidden="true" class="service-expand-icon relative h-3 w-3 shrink-0 transition-transform duration-300 ${idx === 0 ? 'rotate-45' : ''}" style="color:var(--${s.color})">
                 <span class="absolute top-1/2 left-0 h-0.5 w-3 rounded-full bg-current"></span>

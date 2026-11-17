@@ -197,7 +197,6 @@ ${CSS_INLINE}
   <script>
 ${JS_INLINE}
   </script>
-  <script src="${relPath}assets/site.js"></script>
 </body>
 </html>`;
 }
