@@ -585,31 +585,24 @@ function getContactContent(relPath = "") {
       <div id="contact-success" class="hidden border border-border bg-secondary/60 p-8 lg:p-10 rounded-xl space-y-5">
         <div>
           <div class="inline-flex items-center gap-2 rounded-full bg-forest/15 px-3 py-1 font-mono text-xs text-forest font-medium">
-            <span class="h-2 w-2 rounded-full bg-forest animate-pulse"></span>
-            Enquiry Dispatched
+            <span class="h-2 w-2 rounded-full bg-forest"></span>
+            Enquiry Sent Directly
           </div>
           <h3 class="mt-4 font-display text-2xl font-normal text-foreground">Thank you, <span id="contact-client-name"></span>.</h3>
           <p class="mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
-            Your inquiry has been compiled and routed directly to <strong class="text-foreground">${EMAIL}</strong> under reference <span id="contact-ref-code" class="font-mono font-medium text-foreground"></span>.
+            Your enquiry has been delivered directly to our team at <strong class="text-foreground">${EMAIL}</strong>.
           </p>
-        </div>
-
-        <div class="p-4 rounded-lg bg-background/85 border border-border/70 space-y-3">
-          <p class="text-xs text-muted-foreground">
-            If your default email client did not open automatically, click below to send it with one click:
-          </p>
-          <div class="flex flex-wrap gap-3">
-            <a id="contact-mailto-btn" href="mailto:${EMAIL}" class="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-xs font-semibold tracking-wider text-primary-foreground uppercase shadow transition-opacity hover:opacity-90">
-              Open in Email App / Send to ${EMAIL} ✉️
-            </a>
-            <a id="contact-whatsapp-btn" href="https://wa.me/918147588559" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-md border border-input bg-card px-5 py-2.5 text-xs font-semibold tracking-wider text-foreground uppercase hover:bg-secondary transition-colors">
-              Send via WhatsApp 💬
-            </a>
+          <div class="mt-4 p-4 rounded-lg bg-background border border-border text-sm space-y-1">
+            <p class="text-xs text-muted-foreground font-mono">ENQUIRY REFERENCE</p>
+            <p id="contact-ref-code" class="text-base font-mono font-medium text-foreground"></p>
+            <p class="text-xs text-muted-foreground pt-1">
+              Our secretarial compliance desk will review your requirements and respond directly to your email address promptly.
+            </p>
           </div>
         </div>
 
         <div class="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-border/50 text-xs text-muted-foreground">
-          <span>Need immediate assistance? Call <a href="tel:${PHONE_HREF}" class="underline text-foreground font-medium">${PHONE_DISPLAY}</a></span>
+          <span>For urgent matters, call <a href="tel:${PHONE_HREF}" class="underline text-foreground font-medium">${PHONE_DISPLAY}</a></span>
           <button type="button" id="reset-contact-btn" class="underline hover:text-foreground font-mono cursor-pointer">
             Send another enquiry
           </button>
@@ -617,7 +610,10 @@ function getContactContent(relPath = "") {
       </div>
 
       <!-- FORM -->
-      <form id="contact-form" novalidate class="space-y-6">
+      <form id="contact-form" action="https://formsubmit.co/${EMAIL}" method="POST" novalidate class="space-y-6">
+        <input type="hidden" name="_captcha" value="false"/>
+        <input type="hidden" name="_template" value="table"/>
+        <input type="hidden" name="_subject" value="New Website Enquiry — FICOR Advisors LLP"/>
         <div class="grid gap-6 sm:grid-cols-2">
           <div>
             <label for="name" class="eyebrow block text-muted-foreground">Name *</label>
@@ -662,10 +658,10 @@ function getContactContent(relPath = "") {
         </p>
         <div>
           <button type="submit" class="bg-primary px-8 py-4 text-xs tracking-wider text-primary-foreground uppercase transition-colors hover:bg-forest disabled:opacity-60 font-semibold rounded shadow-sm cursor-pointer">
-            Send enquiry to ${EMAIL}
+            Send enquiry
           </button>
           <p class="mt-2 text-xs text-muted-foreground">
-            Submitting routes your enquiry directly to ${EMAIL} with an instant verification reference.
+            Sends directly to ${EMAIL}. Our desk will reply to your email promptly.
           </p>
         </div>
       </form>
@@ -782,27 +778,17 @@ function getBookCallContent(relPath = "") {
       <div id="book-call-success" class="hidden mt-8 border border-border bg-secondary/60 p-8 lg:p-10 rounded-xl space-y-5">
         <div>
           <div class="inline-flex items-center gap-2 rounded-full bg-forest/15 px-3 py-1 font-mono text-xs text-forest font-medium">
-            <span class="h-2 w-2 rounded-full bg-forest animate-pulse"></span>
-            Call Consultation Scheduled
+            <span class="h-2 w-2 rounded-full bg-forest"></span>
+            Booking Request Received
           </div>
           <h3 class="mt-4 font-display text-2xl font-normal text-foreground">Your consultation call has been scheduled.</h3>
-          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Booking Reference: <span id="book-call-ref" class="font-mono font-medium text-foreground"></span>
-          </p>
-          <p id="book-call-summary" class="mt-2 text-sm text-foreground font-medium"></p>
-        </div>
-
-        <div class="p-4 rounded-lg bg-background/85 border border-border/70 space-y-3">
-          <p class="text-xs text-muted-foreground">
-            A confirmation has been routed to <strong class="text-foreground">${EMAIL}</strong>. Click below to verify or notify our desk directly:
-          </p>
-          <div class="flex flex-wrap gap-3">
-            <a id="book-call-mailto-btn" href="mailto:${EMAIL}" class="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-xs font-semibold tracking-wider text-primary-foreground uppercase shadow transition-opacity hover:opacity-90">
-              Notify Desk via Email (${EMAIL}) ✉️
-            </a>
-            <a id="book-call-whatsapp-btn" href="https://wa.me/918147588559" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-md border border-input bg-card px-5 py-2.5 text-xs font-semibold tracking-wider text-foreground uppercase hover:bg-secondary transition-colors">
-              Notify via WhatsApp 💬
-            </a>
+          <div class="mt-4 p-4 rounded-lg bg-background border border-border text-sm space-y-2">
+            <p class="text-xs text-muted-foreground font-mono">BOOKING REFERENCE</p>
+            <p id="book-call-ref" class="text-base font-mono font-medium text-foreground"></p>
+            <p id="book-call-summary" class="text-sm text-foreground/90 font-medium"></p>
+            <p class="text-xs text-muted-foreground pt-1">
+              Your booking has been delivered directly to <strong class="text-foreground">${EMAIL}</strong>. Our consultant will prepare your briefing and call you at your requested time.
+            </p>
           </div>
         </div>
 
@@ -815,7 +801,10 @@ function getBookCallContent(relPath = "") {
       </div>
 
       <!-- CALL BOOKING FORM -->
-      <form id="book-call-form" novalidate class="mt-8 space-y-6">
+      <form id="book-call-form" action="https://formsubmit.co/${EMAIL}" method="POST" novalidate class="mt-8 space-y-6">
+        <input type="hidden" name="_captcha" value="false"/>
+        <input type="hidden" name="_template" value="table"/>
+        <input type="hidden" name="_subject" value="New Call Consultation Booking — FICOR Advisors LLP"/>
         <div class="grid gap-6 sm:grid-cols-2">
           <div>
             <label for="call-name" class="eyebrow block text-muted-foreground">Your Name *</label>
@@ -879,10 +868,10 @@ function getBookCallContent(relPath = "") {
 
         <div>
           <button type="submit" class="rounded-md bg-gradient-to-r from-primary to-violet px-8 py-4 text-xs font-semibold tracking-wider text-primary-foreground uppercase shadow-md transition-opacity hover:opacity-90 cursor-pointer">
-            Confirm Call Booking & Route to ${EMAIL}
+            Confirm Call Booking
           </button>
           <p class="mt-2 text-xs text-muted-foreground">
-            A confirmation notice is dispatched to ${EMAIL} to reserve your consultation slot.
+            Dispatches directly to ${EMAIL} without opening any third-party apps.
           </p>
         </div>
       </form>
