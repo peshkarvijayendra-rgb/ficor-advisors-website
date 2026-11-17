@@ -1,6 +1,7 @@
 node_modules/
 .system_generated/
 local-dev-server.js
+package.json
 *.log
 .DS_Store
 Thumbs.db
