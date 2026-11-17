@@ -12,6 +12,10 @@ const ADDRESS_LINES = [
 ];
 const HOURS = "Mon–Sat, 9:30 AM–6:00 PM IST";
 
+const CSS_INLINE = fs.readFileSync(path.join(__dirname, 'assets', 'styles.css'), 'utf8');
+const JS_INLINE = fs.readFileSync(path.join(__dirname, 'assets', 'site.js'), 'utf8');
+const LOGO_SRC = 'data:image/jpeg;base64,' + fs.readFileSync(path.join(__dirname, 'assets', 'logo.jpg')).toString('base64');
+
 const SERVICES = [
   { id: "01", color: "coral", title: "Audits & Due Diligence", desc: "Secretarial audits, compliance due diligence for mergers, acquisitions and institutional investments, ROC health-checks, search reports, and statutory register verification." },
   { id: "02", color: "violet", title: "Corporate Restructuring", desc: "Mergers, amalgamations, demergers, slump sales, capital reduction, buybacks, and fast-track restructuring under Companies Act 2013 and NCLT procedures." },
@@ -22,25 +26,6 @@ const SERVICES = [
   { id: "07", color: "forest", title: "Social Security & HR Laws", desc: "EPF, ESI, gratuity and bonus compliance, POSH policy implementation and IC advisory, drafting employment contracts, and compliance with modern labour codes." },
   { id: "08", color: "accent", title: "Start-Up Services", desc: "End-to-end entity incorporation, FEMA & FDI compliance (FC-GPR / FC-TRS filings), RBI reporting, convertible note structuring, and ongoing secretarial retainers." }
 ];
-
-function getEmblemSvg(cls = "relative w-56 text-primary sm:w-72 lg:w-[22rem]") {
-  const lines = Array.from({ length: 24 }).map((_, t) => {
-    let n = (t / 24) * Math.PI * 2;
-    let r = t % 6 === 0 ? 82 : 89;
-    let opacity = t % 6 === 0 ? 0.9 : 0.4;
-    return `<line x1="${(120 + Math.cos(n) * 96).toFixed(2)}" y1="${(120 + Math.sin(n) * 96).toFixed(2)}" x2="${(120 + Math.cos(n) * r).toFixed(2)}" y2="${(120 + Math.sin(n) * r).toFixed(2)}" opacity="${opacity}"></line>`;
-  }).join('');
-
-  return `<svg viewBox="0 0 240 240" role="img" aria-label="Ficor Advisors emblem" class="${cls}">
-    <g fill="none" stroke="currentColor" stroke-width="1">
-      <circle cx="120" cy="120" r="112" opacity="0.35"></circle>
-      <circle cx="120" cy="120" r="96" stroke-dasharray="900" style="animation:seal-draw 1.6s cubic-bezier(.16,1,.3,1) forwards"></circle>
-      <circle cx="120" cy="120" r="64" opacity="0.5" stroke-dasharray="2 6"></circle>
-      ${lines}
-    </g>
-    <text x="120" y="132" text-anchor="middle" fill="currentColor" font-family="var(--font-display)" font-size="56">FA</text>
-  </svg>`;
-}
 
 function getHeader(activePage = "home", relPath = "") {
   const navItems = [
@@ -67,7 +52,7 @@ function getHeader(activePage = "home", relPath = "") {
   return `<header class="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur">
   <div class="mx-auto flex h-16 max-w-[1240px] items-center justify-between px-5 sm:px-8 lg:h-20">
     <a class="group flex items-center gap-3 py-1" href="${relPath}index.html">
-      <img src="${relPath}assets/logo.jpg" alt="FICOR Advisors LLP" class="h-10 sm:h-12 w-auto object-contain mix-blend-multiply rounded-sm"/>
+      <img src="${LOGO_SRC}" alt="FICOR Advisors LLP" class="h-10 sm:h-12 w-auto object-contain mix-blend-multiply rounded-sm"/>
       <div class="flex flex-col">
         <span class="font-display text-base tracking-tight sm:text-xl font-semibold text-foreground leading-tight">FICOR Advisors</span>
         <span class="eyebrow hidden text-muted-foreground sm:inline text-[10px]">Governance, Simplified</span>
@@ -104,7 +89,7 @@ function getFooter(relPath = "") {
     <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-14">
       <div>
         <div class="flex items-center gap-3 mb-4">
-          <img src="${relPath}assets/logo.jpg" alt="FICOR Advisors LLP Logo" class="h-12 w-auto object-contain bg-ivory rounded p-1 shadow-sm"/>
+          <img src="${LOGO_SRC}" alt="FICOR Advisors LLP Logo" class="h-12 w-auto object-contain bg-ivory rounded p-1 shadow-sm"/>
           <div>
             <p class="font-display text-xl text-ivory font-medium">FICOR Advisors</p>
             <p class="eyebrow text-brass text-[10px]">Governance, Simplified</p>
@@ -190,13 +175,16 @@ function wrapHtml(title, description, content, activePage = "home", relPath = ""
   <meta property="og:title" content="${title}"/>
   <meta property="og:description" content="${description}"/>
   <link rel="icon" type="image/svg+xml" href="${relPath}favicon.svg"/>
-  <link rel="icon" type="image/jpeg" href="${relPath}assets/logo.jpg?v=3"/>
-  <link rel="shortcut icon" href="${relPath}favicon.ico?v=3"/>
-  <link rel="apple-touch-icon" href="${relPath}assets/logo.jpg?v=3"/>
-  <link rel="stylesheet" href="${relPath}assets/styles.css"/>
+  <link rel="icon" type="image/jpeg" href="${LOGO_SRC}"/>
+  <link rel="shortcut icon" href="${LOGO_SRC}"/>
+  <link rel="apple-touch-icon" href="${LOGO_SRC}"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"/>
+  <style>
+${CSS_INLINE}
+  </style>
+  <link rel="stylesheet" href="${relPath}assets/styles.css"/>
 </head>
 <body class="bg-background text-foreground antialiased selection:bg-coral selection:text-ivory">
   <div class="flex min-h-screen flex-col">
@@ -206,6 +194,9 @@ function wrapHtml(title, description, content, activePage = "home", relPath = ""
     </main>
     ${getFooter(relPath)}
   </div>
+  <script>
+${JS_INLINE}
+  </script>
   <script src="${relPath}assets/site.js"></script>
 </body>
 </html>`;
@@ -218,7 +209,7 @@ module.exports = {
   ADDRESS_LINES,
   HOURS,
   SERVICES,
-  getEmblemSvg,
+  LOGO_SRC,
   getHeader,
   getFooter,
   getStatsHtml,
