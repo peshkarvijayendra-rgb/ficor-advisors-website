@@ -58,7 +58,7 @@ function getHomeContent(relPath = "") {
     <div class="reveal justify-self-center" style="transition-delay:200ms">
       <div class="relative p-6 sm:p-8 bg-card rounded-2xl border border-border/70 shadow-md flex flex-col items-center">
         <div aria-hidden="true" class="absolute inset-0 -m-5 sm:-m-7 border border-border/40 rounded-3xl pointer-events-none"></div>
-        <img src="" alt="FICOR Advisors LLP Official Emblem" class="w-56 sm:w-64 lg:w-72 h-auto object-contain mix-blend-multiply"/>
+        <img src="${LOGO_SRC}" alt="FICOR Advisors LLP Official Emblem" class="w-56 sm:w-64 lg:w-72 h-auto object-contain mix-blend-multiply"/>
         <div class="relative mt-6 w-full space-y-2" aria-hidden="true">
           <div class="h-px origin-left bg-border" style="width:100%"></div>
           <div class="h-px origin-left bg-border" style="width:86%"></div>
