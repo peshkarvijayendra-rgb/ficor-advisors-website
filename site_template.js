@@ -17,14 +17,139 @@ const JS_INLINE = fs.readFileSync(path.join(__dirname, 'assets', 'site.js'), 'ut
 const LOGO_SRC = 'data:image/jpeg;base64,' + fs.readFileSync(path.join(__dirname, 'assets', 'logo.jpg')).toString('base64');
 
 const SERVICES = [
-  { id: "01", color: "coral", title: "Audits & Due Diligence", desc: "Secretarial audits, compliance due diligence for mergers, acquisitions and institutional investments, ROC health-checks, search reports, and statutory register verification." },
-  { id: "02", color: "violet", title: "Corporate Restructuring", desc: "Mergers, amalgamations, demergers, slump sales, capital reduction, buybacks, and fast-track restructuring under Companies Act 2013 and NCLT procedures." },
-  { id: "03", color: "forest", title: "Capital Market Services", desc: "Pre-IPO secretarial readiness, rights issues, preferential allotments, private placement compliance, employee stock option plans (ESOPs), and regulatory disclosures." },
-  { id: "04", color: "accent", title: "GST Services", desc: "Comprehensive GST registration, monthly and annual return filings, GST refunds, classification audits, input tax credit reconciliation, and departmental representation." },
-  { id: "05", color: "coral", title: "IPR Services", desc: "End-to-end trademark search, registration, copyright filings, response to examination reports, opposition hearings, licensing agreements, and portfolio renewals." },
-  { id: "06", color: "violet", title: "Legal Services", desc: "Commercial contract drafting, shareholder agreements (SHA/SSA), board advisory, representation before NCLT, RD, and ROC, and compounding of statutory offenses." },
-  { id: "07", color: "forest", title: "Social Security & HR Laws", desc: "EPF, ESI, gratuity and bonus compliance, POSH policy implementation and IC advisory, drafting employment contracts, and compliance with modern labour codes." },
-  { id: "08", color: "accent", title: "Start-Up Services", desc: "End-to-end entity incorporation, FEMA & FDI compliance (FC-GPR / FC-TRS filings), RBI reporting, convertible note structuring, and ongoing secretarial retainers." }
+  {
+    id: "01",
+    color: "coral",
+    title: "Audits & Due Diligence",
+    desc: "Our audits and due diligence reviews give a clear picture of a company's compliance health. They help boards, investors and acquirers find risks early and act on them with confidence.",
+    scope: [
+      "Secretarial Audit under Section 204 of the Companies Act, 2013",
+      "Annual Secretarial Compliance Reports for listed entities",
+      "Internal and compliance audits under corporate, FEMA and labour laws",
+      "Legal and secretarial due diligence for investment, merger and acquisition transactions",
+      "ROC search and status reports for lenders and investors",
+      "Review of statutory registers, minutes and records",
+      "FEMA/RBI compliance health checks for foreign-invested companies",
+      "Labour law and HR compliance audits"
+    ]
+  },
+  {
+    id: "02",
+    color: "violet",
+    title: "Corporate Restructuring",
+    desc: "We design and carry out restructuring that meets a business's strategic, tax and regulatory goals. That covers the whole process, from structuring and documentation through to approvals from NCLT and the regulators.",
+    scope: [
+      "Mergers, amalgamations and demergers under Sections 230–232",
+      "Fast-track mergers under Section 233",
+      "Cross-border mergers and inbound or outbound restructuring",
+      "Reduction of share capital under Section 66",
+      "Buy-back of securities under Section 68",
+      "Conversions: private to public company, company to LLP, firm to company, and similar",
+      "Slump sales and business transfers",
+      "Group reorganisation and holding-subsidiary structuring",
+      "Voluntary strike-off and closure of entities"
+    ]
+  },
+  {
+    id: "03",
+    color: "forest",
+    title: "Capital Market Services",
+    desc: "We guide companies through raising capital and staying listed. Our work covers the SEBI framework, from IPO readiness to ongoing compliance as a listed entity.",
+    scope: [
+      "IPO readiness and SME IPO advisory (BSE SME / NSE Emerge)",
+      "Compliance under SEBI (LODR) Regulations",
+      "SEBI (PIT) Regulations: insider trading policies, structured digital database (SDD) and trading window",
+      "SEBI (SAST) Regulations: takeover disclosures and open offers",
+      "Rights issues, preferential allotments and qualified institutional placements (QIPs)",
+      "Private placements under Section 42",
+      "ESOP and SBEB scheme design and implementation",
+      "Delisting and reclassification of promoters",
+      "Liaison with stock exchanges, depositories and the RTA"
+    ]
+  },
+  {
+    id: "04",
+    color: "accent",
+    title: "GST Services",
+    desc: "Our GST support runs from registration to litigation. It keeps businesses compliant and their input tax credit protected, and helps them prepare for notices from the department.",
+    scope: [
+      "GST registration, amendment and cancellation",
+      "Monthly, quarterly and annual returns (GSTR-1, GSTR-3B, GSTR-9, GSTR-9C)",
+      "Input tax credit reconciliation with GSTR-2B",
+      "E-invoicing and e-way bill compliance",
+      "GST refunds (exports, inverted duty structure)",
+      "Replies to notices, scrutiny and audit proceedings",
+      "Appeals and representation before GST authorities",
+      "GST health checks and transaction advisory"
+    ]
+  },
+  {
+    id: "05",
+    color: "coral",
+    title: "IPR Services",
+    desc: "We help businesses secure, manage and enforce their intellectual property, so that their brands, creative works and innovations remain protected business assets.",
+    scope: [
+      "Trademark search, filing and registration",
+      "Replies to examination reports and attendance at hearings",
+      "Trademark opposition and rectification proceedings",
+      "Renewal, assignment and recordal of trademarks",
+      "Copyright registration (literary, artistic, software and similar works)",
+      "Design registration",
+      "Patent filing in coordination with patent agents",
+      "IP licensing, assignment and franchise agreements",
+      "IP portfolio management and watch services"
+    ]
+  },
+  {
+    id: "06",
+    color: "violet",
+    title: "Legal Services",
+    desc: "We represent clients before tribunals and regulators and draft the documents their business relies on. Our corporate law advice is precise and practical.",
+    scope: [
+      "NCLT matters: oppression and mismanagement (Sections 241–242), compromise and arrangement, and restoration of struck-off companies",
+      "Compounding of offences (Section 441) and adjudication proceedings",
+      "Matters under the Insolvency and Bankruptcy Code",
+      "Representation before the ROC, Regional Director, RBI and other authorities",
+      "Drafting shareholders', joint venture, share subscription and founders' agreements",
+      "NDAs, service agreements and commercial contracts",
+      "Legal opinions on corporate, FEMA and regulatory matters",
+      "Support in arbitration and dispute resolution"
+    ]
+  },
+  {
+    id: "07",
+    color: "forest",
+    title: "Social Security & HR Laws",
+    desc: "We help employers meet their obligations under India's labour codes and social security laws. That reduces risk and supports fair, compliant workplaces.",
+    scope: [
+      "EPF and ESIC registration, monthly returns and compliance",
+      "Professional Tax registration and filings",
+      "Shops & Establishments registration and renewals",
+      "Advisory on the new Labour Codes (Wages, Social Security, Industrial Relations, Occupational Safety)",
+      "Gratuity, bonus and minimum wages compliance",
+      "Contract labour registration and licensing",
+      "POSH policy, Internal Committee setup and annual reports",
+      "HR policy drafting, standing orders and employee handbooks",
+      "Labour inspections and replies to notices"
+    ]
+  },
+  {
+    id: "08",
+    color: "accent",
+    title: "Start-Up Services",
+    desc: "We support founders from idea to investment. We help them choose the right structure, build compliance into the company from the start and raise funds with confidence.",
+    scope: [
+      "Choice of business entity and incorporation (company, LLP, OPC)",
+      "DPIIT Start-up India recognition and Section 80-IAC tax exemption",
+      "MSME Udyam registration",
+      "Founders' agreements and ESOP structuring",
+      "Fund-raising support: equity, CCPS, CCDs and convertible notes",
+      "FEMA compliance for foreign investment (FC-GPR, FC-TRS, annual FLA return)",
+      "Trademark protection for brand and product names",
+      "Virtual Company Secretary and annual compliance management",
+      "Investor due diligence readiness and data room support"
+    ]
+  }
 ];
 
 function getHeader(activePage = "home", relPath = "") {

@@ -92,8 +92,9 @@ function getHomeContent(relPath = "") {
         </div>
         <div>
           <h3 class="text-xl leading-snug font-normal">${s.title}</h3>
+          <p class="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-2">${s.desc}</p>
           <span class="mt-4 block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--${s.color})"></span>
-          <span class="eyebrow mt-4 block text-muted-foreground opacity-0 transition-opacity duration-300 group-hover:opacity-100">Open directory</span>
+          <span class="eyebrow mt-4 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100">Review ${s.scope ? s.scope.length : 8} scopes →</span>
         </div>
       </a>
     </li>`).join('')}
@@ -130,14 +131,25 @@ function getAboutContent(relPath = "") {
   <div class="mx-auto max-w-[1240px] px-5 py-20 sm:px-8 lg:py-28">
     <div class="reveal">
       <p class="eyebrow flex items-center gap-3 text-muted-foreground">
-        <span aria-hidden="true" class="h-px w-8 bg-accent"></span>About the practice
+        <span aria-hidden="true" class="h-px w-8 bg-accent"></span>Firm Profile · About Us
       </p>
       <h1 class="mt-6 max-w-3xl text-4xl leading-[1.08] sm:text-5xl lg:text-[3.6rem] font-normal">
-        Governance, Simplified
+        FICOR Advisors LLP
       </h1>
-      <p class="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-        FICOR Advisors LLP handles the secretarial, legal and compliance work that keeps a company in good standing — audits and due diligence, corporate restructuring, capital market services, GST, IPR, and start-up compliance, all under one roof.
+      <p class="mt-4 text-xl font-display text-accent">
+        Corporate Law, Regulatory Compliance & Governance with Confidence.
       </p>
+      <div class="mt-7 max-w-3xl space-y-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
+        <p>
+          FICOR Advisors LLP is a professional advisory firm in Bengaluru. We help businesses handle corporate law, regulatory compliance and governance with confidence.
+        </p>
+        <p>
+          Our team of corporate law, compliance and regulatory professionals serves start-ups, SMEs, foreign-owned subsidiaries, producer companies and growing enterprises across India. Our work covers the full life of a business: incorporation and fund-raising, everyday compliance, restructuring, disputes and exit.
+        </p>
+        <p>
+          We believe compliance should support growth, not hold it back. So we combine strong technical knowledge with practical, business-focused advice, delivered with integrity and on time.
+        </p>
+      </div>
     </div>
     <div class="reveal" style="transition-delay:120ms">
       ${getStatsHtml()}
@@ -145,56 +157,63 @@ function getAboutContent(relPath = "") {
   </div>
 </section>
 
-<section class="mx-auto max-w-[1240px] px-5 py-20 sm:px-8 lg:py-28">
-  <div class="reveal max-w-3xl">
-    <p class="eyebrow flex items-center gap-3 text-muted-foreground">
-      <span aria-hidden="true" class="h-px w-8 bg-accent"></span>Standing
-    </p>
-    <h2 class="mt-5 text-3xl leading-[1.1] sm:text-4xl lg:text-5xl font-normal">
-      Vision, mission and principle.
-    </h2>
-  </div>
-  <div class="mt-12 border-t border-border">
-    <!-- 01 VISION -->
-    <div class="reveal" style="transition-delay:0ms">
-      <div id="vision" class="grid gap-5 border-b border-border py-10 lg:grid-cols-[200px_1fr] lg:gap-12">
-        <div class="flex items-baseline gap-4">
-          <span class="font-mono text-xs font-medium" style="color:var(--coral)">01</span>
-          <h3 class="text-2xl font-normal">Vision</h3>
-        </div>
-        <div class="space-y-3">
-          <p class="text-xl sm:text-2xl font-display leading-snug text-foreground">
-            Compliance made simple. Governance made strong. Growth made possible.
+<!-- WHAT SETS US APART -->
+<section class="border-b border-border bg-secondary/30">
+  <div class="mx-auto max-w-[1240px] px-5 py-20 sm:px-8 lg:py-28">
+    <div class="reveal max-w-3xl">
+      <p class="eyebrow flex items-center gap-3 text-muted-foreground">
+        <span aria-hidden="true" class="h-px w-8 bg-coral"></span>Distinctive Value
+      </p>
+      <h2 class="mt-5 text-3xl leading-[1.1] sm:text-4xl lg:text-5xl font-normal">
+        What Sets Us Apart
+      </h2>
+      <p class="mt-4 text-base text-muted-foreground max-w-2xl">
+        Built on partner accessibility, multidisciplinary reach, and deep institutional familiarity across statutory authorities.
+      </p>
+    </div>
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="reveal bg-card p-7 rounded-xl border border-border shadow-sm flex flex-col justify-between" style="transition-delay:0ms">
+        <div>
+          <span class="font-mono text-xs font-semibold px-2.5 py-1 rounded-md bg-secondary text-coral">01 · Multidisciplinary</span>
+          <h3 class="mt-4 text-xl font-normal text-foreground">One-stop advisory</h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Corporate law, FEMA, GST, IPR, labour laws and tribunal matters under one roof.
           </p>
         </div>
       </div>
-    </div>
-
-    <!-- 02 MISSION -->
-    <div class="reveal" style="transition-delay:80ms">
-      <div id="mission" class="grid gap-5 border-b border-border py-10 lg:grid-cols-[200px_1fr] lg:gap-12">
-        <div class="flex items-baseline gap-4">
-          <span class="font-mono text-xs font-medium" style="color:var(--violet)">02</span>
-          <h3 class="text-2xl font-normal">Mission</h3>
-        </div>
-        <div class="space-y-3">
-          <p class="text-base sm:text-lg leading-relaxed text-foreground/90 font-normal">
-            At FICOR Advisors LLP, we simplify the regulatory journey for startups, SMEs, foreign-owned companies and growing enterprises. We give precise, ethical and practical advice across corporate law, FEMA, NCLT matters, intellectual property and labour compliance, so our clients can focus on building their business while we protect its foundation.
+      <div class="reveal bg-card p-7 rounded-xl border border-border shadow-sm flex flex-col justify-between" style="transition-delay:80ms">
+        <div>
+          <span class="font-mono text-xs font-semibold px-2.5 py-1 rounded-md bg-secondary text-violet">02 · Leadership</span>
+          <h3 class="mt-4 text-xl font-normal text-foreground">Partner-level involvement</h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Qualified professionals personally supervise every engagement, ensuring senior-level oversight.
           </p>
         </div>
       </div>
-    </div>
-
-    <!-- 03 PRINCIPLE STATEMENT -->
-    <div class="reveal" style="transition-delay:160ms">
-      <div id="principle" class="grid gap-5 border-b border-border py-10 lg:grid-cols-[200px_1fr] lg:gap-12">
-        <div class="flex items-baseline gap-4">
-          <span class="font-mono text-xs font-medium" style="color:var(--forest)">03</span>
-          <h3 class="text-2xl font-normal">Principle</h3>
+      <div class="reveal bg-card p-7 rounded-xl border border-border shadow-sm flex flex-col justify-between" style="transition-delay:160ms">
+        <div>
+          <span class="font-mono text-xs font-semibold px-2.5 py-1 rounded-md bg-secondary text-forest">03 · Representation</span>
+          <h3 class="mt-4 text-xl font-normal text-foreground">Regulatory depth</h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Hands-on experience before the ROC, Regional Director, NCLT, RBI and other statutory authorities.
+          </p>
         </div>
-        <div class="space-y-3">
-          <p class="text-base sm:text-lg leading-relaxed text-foreground/90 font-normal">
-            We act with integrity, advise with precision, protect client confidence, anticipate before we react, and keep learning, so our clients can grow with certainty.
+      </div>
+      <div class="reveal bg-card p-7 rounded-xl border border-border shadow-sm flex flex-col justify-between" style="transition-delay:240ms">
+        <div>
+          <span class="font-mono text-xs font-semibold px-2.5 py-1 rounded-md bg-secondary text-accent">04 · Foresight</span>
+          <h3 class="mt-4 text-xl font-normal text-foreground">Proactive compliance</h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
+            Client-specific calendars and early alerts, so deadlines are never missed and penalties are prevented.
+          </p>
+        </div>
+      </div>
+      <div class="reveal bg-card p-7 rounded-xl border border-border shadow-sm flex flex-col justify-between sm:col-span-2 lg:col-span-2" style="transition-delay:320ms">
+        <div>
+          <span class="font-mono text-xs font-semibold px-2.5 py-1 rounded-md bg-secondary text-coral">05 · Partnership</span>
+          <h3 class="mt-4 text-xl font-normal text-foreground">Long-term relationships</h3>
+          <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
+            We grow with our clients, from first filing to fund-raise and beyond, serving as a trusted legal and compliance partner.
           </p>
         </div>
       </div>
@@ -202,45 +221,110 @@ function getAboutContent(relPath = "") {
   </div>
 </section>
 
-<section class="border-y border-border bg-secondary/60">
+<!-- OUR APPROACH -->
+<section class="border-b border-border">
   <div class="mx-auto max-w-[1240px] px-5 py-20 sm:px-8 lg:py-28">
     <div class="reveal max-w-3xl">
       <p class="eyebrow flex items-center gap-3 text-muted-foreground">
-        <span aria-hidden="true" class="h-px w-8 bg-accent"></span>Our approach
+        <span aria-hidden="true" class="h-px w-8 bg-accent"></span>Our Approach
       </p>
       <h2 class="mt-5 text-3xl leading-[1.1] sm:text-4xl lg:text-5xl font-normal">
         How the work is carried out.
       </h2>
+      <p class="mt-4 text-base sm:text-lg text-foreground/90 font-display">
+        Every engagement follows the same discipline: understand first, execute with precision, and stay accountable until the matter is closed.
+      </p>
     </div>
-    <div class="mt-12 grid gap-px border border-border bg-border lg:grid-cols-3">
-      <div class="reveal bg-background p-8" style="transition-delay:70ms">
+    <div class="mt-14 grid gap-px border border-border bg-border lg:grid-cols-3">
+      <div class="reveal bg-background p-8 sm:p-10" style="transition-delay:70ms">
         <div aria-hidden="true" class="mb-5 h-1 w-12 rounded-full" style="background-color:var(--coral)"></div>
-        <p class="font-mono text-xs font-medium" style="color:var(--coral)">Commitment 01</p>
-        <h4 class="mt-3 text-lg font-medium text-foreground">Integrity & Confidence</h4>
-        <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
-          We maintain absolute confidentiality and ethical rigor across every corporate filing, board resolution, and sensitive regulatory matter.
+        <p class="font-mono text-xs font-semibold" style="color:var(--coral)">Commitment 1</p>
+        <h4 class="mt-3 text-xl font-normal text-foreground">Understand Before We Advise</h4>
+        <p class="mt-4 text-sm leading-relaxed text-muted-foreground">
+          Before we advise, we study the client's business, ownership structure, compliance history and objectives. We review existing records, identify gaps and risks, and agree on a clear scope, timeline and fee before work begins.
         </p>
       </div>
-      <div class="reveal bg-background p-8" style="transition-delay:140ms">
+      <div class="reveal bg-background p-8 sm:p-10" style="transition-delay:140ms">
         <div aria-hidden="true" class="mb-5 h-1 w-12 rounded-full" style="background-color:var(--violet)"></div>
-        <p class="font-mono text-xs font-medium" style="color:var(--violet)">Commitment 02</p>
-        <h4 class="mt-3 text-lg font-medium text-foreground">Precision & Practicality</h4>
-        <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
-          Clear, actionable legal and secretarial guidance tailored to your operational realities — eliminating ambiguity and compliance delays.
+        <p class="font-mono text-xs font-semibold" style="color:var(--violet)">Commitment 2</p>
+        <h4 class="mt-3 text-xl font-normal text-foreground">Precision in Execution</h4>
+        <p class="mt-4 text-sm leading-relaxed text-muted-foreground">
+          Every filing, document and opinion is prepared against a defined checklist and reviewed by a qualified professional before it leaves the firm. We follow a maker-checker process, keep complete working papers, and make sure everything we sign can withstand regulatory scrutiny.
         </p>
       </div>
-      <div class="reveal bg-background p-8" style="transition-delay:210ms">
+      <div class="reveal bg-background p-8 sm:p-10" style="transition-delay:210ms">
         <div aria-hidden="true" class="mb-5 h-1 w-12 rounded-full" style="background-color:var(--forest)"></div>
-        <p class="font-mono text-xs font-medium" style="color:var(--forest)">Commitment 03</p>
-        <h4 class="mt-3 text-lg font-medium text-foreground">Anticipate Before Reacting</h4>
-        <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
-          We proactively track statutory deadlines, regulatory revisions, and legal changes so your enterprise stays ahead and completely protected.
+        <p class="font-mono text-xs font-semibold" style="color:var(--forest)">Commitment 3</p>
+        <h4 class="mt-3 text-xl font-normal text-foreground">Proactive and Accountable</h4>
+        <p class="mt-4 text-sm leading-relaxed text-muted-foreground">
+          We track due dates through a client-specific compliance calendar and alert clients well ahead of deadlines. Clients get regular status updates, a single point of contact and prompt responses, and we stay with every matter until it is fully closed.
         </p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- STANDING: VISION, MISSION, PRINCIPLE -->
+<section class="border-b border-border bg-secondary/20">
+  <div class="mx-auto max-w-[1240px] px-5 py-20 sm:px-8 lg:py-28">
+    <div class="reveal max-w-3xl">
+      <p class="eyebrow flex items-center gap-3 text-muted-foreground">
+        <span aria-hidden="true" class="h-px w-8 bg-accent"></span>Standing
+      </p>
+      <h2 class="mt-5 text-3xl leading-[1.1] sm:text-4xl lg:text-5xl font-normal">
+        Vision, mission and principle.
+      </h2>
+    </div>
+    <div class="mt-12 border-t border-border">
+      <!-- 01 VISION -->
+      <div class="reveal" style="transition-delay:0ms">
+        <div id="vision" class="grid gap-5 border-b border-border py-10 lg:grid-cols-[200px_1fr] lg:gap-12">
+          <div class="flex items-baseline gap-4">
+            <span class="font-mono text-xs font-medium" style="color:var(--coral)">01</span>
+            <h3 class="text-2xl font-normal">Vision</h3>
+          </div>
+          <div class="space-y-3">
+            <p class="text-xl sm:text-2xl font-display leading-snug text-foreground">
+              Compliance made simple. Governance made strong. Growth made possible.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 MISSION -->
+      <div class="reveal" style="transition-delay:80ms">
+        <div id="mission" class="grid gap-5 border-b border-border py-10 lg:grid-cols-[200px_1fr] lg:gap-12">
+          <div class="flex items-baseline gap-4">
+            <span class="font-mono text-xs font-medium" style="color:var(--violet)">02</span>
+            <h3 class="text-2xl font-normal">Mission</h3>
+          </div>
+          <div class="space-y-3">
+            <p class="text-base sm:text-lg leading-relaxed text-foreground/90 font-normal">
+              At FICOR Advisors LLP, we simplify the regulatory journey for startups, SMEs, foreign-owned companies and growing enterprises. We give precise, ethical and practical advice across corporate law, FEMA, NCLT matters, intellectual property and labour compliance, so our clients can focus on building their business while we protect its foundation.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 PRINCIPLE STATEMENT -->
+      <div class="reveal" style="transition-delay:160ms">
+        <div id="principle" class="grid gap-5 border-b border-border py-10 lg:grid-cols-[200px_1fr] lg:gap-12">
+          <div class="flex items-baseline gap-4">
+            <span class="font-mono text-xs font-medium" style="color:var(--forest)">03</span>
+            <h3 class="text-2xl font-normal">Principle</h3>
+          </div>
+          <div class="space-y-3">
+            <p class="text-base sm:text-lg leading-relaxed text-foreground/90 font-normal">
+              We act with integrity, advise with precision, protect client confidence, anticipate before we react, and keep learning, so our clients can grow with certainty.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROWTH TIMELINE -->
 <section class="mx-auto max-w-[1240px] px-5 py-20 sm:px-8 lg:py-28">
   <div class="reveal max-w-3xl">
     <p class="eyebrow flex items-center gap-3 text-muted-foreground">
@@ -351,19 +435,34 @@ function getServicesContent(relPath = "") {
               </span>
             </button>
           </h2>
-          <div id="panel-${s.id}" data-service-panel="${s.id}" ${idx !== 0 ? 'hidden' : ''} class="max-w-2xl pb-8 lg:max-w-3xl space-y-4">
-            <p class="text-base leading-relaxed text-foreground/85">
-              ${s.desc}
-            </p>
-            <div class="pt-2 flex flex-wrap gap-2">
-              <span class="inline-flex rounded-full bg-secondary px-3 py-1 font-mono text-xs text-muted-foreground">360° Advisory</span>
-              <span class="inline-flex rounded-full bg-secondary px-3 py-1 font-mono text-xs text-muted-foreground">Statutory Filing</span>
-              <span class="inline-flex rounded-full bg-secondary px-3 py-1 font-mono text-xs text-muted-foreground">Regulatory Representation</span>
+          <div id="panel-${s.id}" data-service-panel="${s.id}" ${idx !== 0 ? 'hidden' : ''} class="max-w-2xl pb-8 lg:max-w-3xl space-y-6">
+            <div>
+              <p class="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-2 flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full" style="background-color:var(--${s.color})"></span>
+                Description
+              </p>
+              <p class="text-base leading-relaxed text-foreground/90 font-normal">
+                ${s.desc}
+              </p>
             </div>
-            <div class="pt-3">
-              <a href="${relPath}book-call.html" class="inline-flex items-center gap-2 text-xs font-medium tracking-wider text-accent uppercase hover:underline">
+            <div>
+              <p class="font-mono text-xs uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-2">
+                <span class="h-1.5 w-1.5 rounded-full" style="background-color:var(--${s.color})"></span>
+                Scope of Services
+              </p>
+              <ul class="grid gap-2.5 sm:grid-cols-2 text-sm text-foreground/85 bg-secondary/35 p-4 sm:p-5 rounded-lg border border-border/50">
+                ${(s.scope || []).map(item => `
+                <li class="flex items-start gap-2.5">
+                  <span class="mt-1 shrink-0 font-bold leading-none text-base" style="color:var(--${s.color})">•</span>
+                  <span class="leading-snug">${item}</span>
+                </li>`).join('')}
+              </ul>
+            </div>
+            <div class="pt-2 flex flex-wrap items-center justify-between gap-4 border-t border-border/40">
+              <a href="${relPath}book-call.html" class="inline-flex items-center gap-2 text-xs font-semibold tracking-wider text-accent uppercase hover:underline">
                 Consult on ${s.title} →
               </a>
+              <span class="font-mono text-xs text-muted-foreground">${(s.scope || []).length} key scopes covered</span>
             </div>
           </div>
         </section>
