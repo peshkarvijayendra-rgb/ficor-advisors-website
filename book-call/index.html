@@ -251,6 +251,7 @@
         <input type="hidden" name="_template" value="table"/>
         <input type="hidden" name="_subject" value="New Call Consultation Booking — FICOR Advisors LLP"/>
         <input type="hidden" name="_cc" value="mail@ficoradvisors.in"/>
+        <input type="hidden" name="_url" value="https://ficor-advisors-website-e7ce.vercel.app/book-call.html"/>
         <div class="grid gap-6 sm:grid-cols-2">
           <div>
             <label for="call-name" class="eyebrow block text-muted-foreground">Your Name *</label>
@@ -627,6 +628,7 @@
             _captcha: 'false',
             _cc: ccEmail,
             _replyto: email,
+            _url: window.location.href.split('#')[0],
             name: name,
             email: email,
             phone: phone || 'Not provided',
@@ -758,6 +760,7 @@
             _captcha: 'false',
             _cc: ccEmail,
             _replyto: email || undefined,
+            _url: window.location.href.split('#')[0],
             name: name,
             phone: phone,
             email: email || 'Not provided',

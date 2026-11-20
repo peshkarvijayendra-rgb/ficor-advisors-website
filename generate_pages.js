@@ -625,6 +625,7 @@ function getContactContent(relPath = "") {
         <input type="hidden" name="_template" value="table"/>
         <input type="hidden" name="_subject" value="New Website Enquiry — FICOR Advisors LLP"/>
         <input type="hidden" name="_cc" value="${EMAIL}"/>
+        <input type="hidden" name="_url" value="https://ficor-advisors-website-e7ce.vercel.app/contact.html"/>
         <div class="grid gap-6 sm:grid-cols-2">
           <div>
             <label for="name" class="eyebrow block text-muted-foreground">Name *</label>
@@ -825,6 +826,7 @@ function getBookCallContent(relPath = "") {
         <input type="hidden" name="_template" value="table"/>
         <input type="hidden" name="_subject" value="New Call Consultation Booking — FICOR Advisors LLP"/>
         <input type="hidden" name="_cc" value="${EMAIL}"/>
+        <input type="hidden" name="_url" value="https://ficor-advisors-website-e7ce.vercel.app/book-call.html"/>
         <div class="grid gap-6 sm:grid-cols-2">
           <div>
             <label for="call-name" class="eyebrow block text-muted-foreground">Your Name *</label>
