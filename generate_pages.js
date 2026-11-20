@@ -84,17 +84,19 @@ function getHomeContent(relPath = "") {
   </div>
   <ul class="mt-14 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
     ${SERVICES.map((s, idx) => `
-    <li class="reveal bg-background" style="transition-delay:${idx * 50}ms">
-      <a href="${relPath}services.html#service-${s.id}" class="group flex h-full flex-col justify-between gap-10 p-6 transition-colors hover:bg-secondary lg:p-7">
-        <div class="flex items-start justify-between">
-          <span class="font-mono text-xs font-medium" style="color:var(--${s.color})">${s.id}</span>
+    <li class="reveal bg-background flex flex-col" style="transition-delay:${idx * 50}ms">
+      <a href="${relPath}services.html#service-${s.id}" class="group flex h-full flex-col p-6 transition-colors hover:bg-secondary lg:p-7">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs font-semibold" style="color:var(--${s.color})">${s.id}</span>
           <span aria-hidden="true" class="h-2 w-2 rounded-full transition-transform group-hover:scale-125" style="background-color:var(--${s.color})"></span>
         </div>
-        <div>
-          <h3 class="text-xl leading-snug font-normal">${s.title}</h3>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-2">${s.desc}</p>
-          <span class="mt-4 block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--${s.color})"></span>
-          <span class="eyebrow mt-4 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100">Review ${s.scope ? s.scope.length : 8} scopes →</span>
+        <div class="mt-7 flex flex-col">
+          <h3 class="text-xl leading-snug font-normal text-foreground service-card-title flex items-start" style="min-height:3.5rem">${s.title}</h3>
+          <p class="mt-3 text-xs leading-relaxed text-muted-foreground line-clamp-3 service-card-desc" style="min-height:4.25rem">${s.desc}</p>
+        </div>
+        <div class="mt-auto pt-6">
+          <span class="block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--${s.color})"></span>
+          <span class="eyebrow mt-3 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-[11px]">Review ${s.scope ? s.scope.length : 8} scopes →</span>
         </div>
       </a>
     </li>`).join('')}

@@ -73,3 +73,15 @@
     gap: 2.5rem !important;
   }
 }
+
+/* Service Card Straight Alignment */
+.service-card-title {
+  min-height: 3.5rem !important;
+  display: flex !important;
+  align-items: flex-start !important;
+}
+
+.service-card-desc {
+  min-height: 4.25rem !important;
+}
+

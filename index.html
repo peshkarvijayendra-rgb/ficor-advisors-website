@@ -94,6 +94,18 @@
   }
 }
 
+/* Service Card Straight Alignment */
+.service-card-title {
+  min-height: 3.5rem !important;
+  display: flex !important;
+  align-items: flex-start !important;
+}
+
+.service-card-desc {
+  min-height: 4.25rem !important;
+}
+
+
   </style>
   <link rel="stylesheet" href="assets/styles.css"/>
 </head>
@@ -226,115 +238,131 @@
   </div>
   <ul class="mt-14 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
     
-    <li class="reveal bg-background" style="transition-delay:0ms">
-      <a href="services.html#service-01" class="group flex h-full flex-col justify-between gap-10 p-6 transition-colors hover:bg-secondary lg:p-7">
-        <div class="flex items-start justify-between">
-          <span class="font-mono text-xs font-medium" style="color:var(--coral)">01</span>
+    <li class="reveal bg-background flex flex-col" style="transition-delay:0ms">
+      <a href="services.html#service-01" class="group flex h-full flex-col p-6 transition-colors hover:bg-secondary lg:p-7">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs font-semibold" style="color:var(--coral)">01</span>
           <span aria-hidden="true" class="h-2 w-2 rounded-full transition-transform group-hover:scale-125" style="background-color:var(--coral)"></span>
         </div>
-        <div>
-          <h3 class="text-xl leading-snug font-normal">Audits & Due Diligence</h3>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-2">Our audits and due diligence reviews give a clear picture of a company's compliance health. They help boards, investors and acquirers find risks early and act on them with confidence.</p>
-          <span class="mt-4 block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--coral)"></span>
-          <span class="eyebrow mt-4 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100">Review 8 scopes →</span>
+        <div class="mt-7 flex flex-col">
+          <h3 class="text-xl leading-snug font-normal text-foreground service-card-title flex items-start" style="min-height:3.5rem">Audits & Due Diligence</h3>
+          <p class="mt-3 text-xs leading-relaxed text-muted-foreground line-clamp-3 service-card-desc" style="min-height:4.25rem">Our audits and due diligence reviews give a clear picture of a company's compliance health. They help boards, investors and acquirers find risks early and act on them with confidence.</p>
+        </div>
+        <div class="mt-auto pt-6">
+          <span class="block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--coral)"></span>
+          <span class="eyebrow mt-3 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-[11px]">Review 8 scopes →</span>
         </div>
       </a>
     </li>
-    <li class="reveal bg-background" style="transition-delay:50ms">
-      <a href="services.html#service-02" class="group flex h-full flex-col justify-between gap-10 p-6 transition-colors hover:bg-secondary lg:p-7">
-        <div class="flex items-start justify-between">
-          <span class="font-mono text-xs font-medium" style="color:var(--violet)">02</span>
+    <li class="reveal bg-background flex flex-col" style="transition-delay:50ms">
+      <a href="services.html#service-02" class="group flex h-full flex-col p-6 transition-colors hover:bg-secondary lg:p-7">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs font-semibold" style="color:var(--violet)">02</span>
           <span aria-hidden="true" class="h-2 w-2 rounded-full transition-transform group-hover:scale-125" style="background-color:var(--violet)"></span>
         </div>
-        <div>
-          <h3 class="text-xl leading-snug font-normal">Corporate Restructuring</h3>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-2">We design and carry out restructuring that meets a business's strategic, tax and regulatory goals. That covers the whole process, from structuring and documentation through to approvals from NCLT and the regulators.</p>
-          <span class="mt-4 block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--violet)"></span>
-          <span class="eyebrow mt-4 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100">Review 9 scopes →</span>
+        <div class="mt-7 flex flex-col">
+          <h3 class="text-xl leading-snug font-normal text-foreground service-card-title flex items-start" style="min-height:3.5rem">Corporate Restructuring</h3>
+          <p class="mt-3 text-xs leading-relaxed text-muted-foreground line-clamp-3 service-card-desc" style="min-height:4.25rem">We design and carry out restructuring that meets a business's strategic, tax and regulatory goals. That covers the whole process, from structuring and documentation through to approvals from NCLT and the regulators.</p>
+        </div>
+        <div class="mt-auto pt-6">
+          <span class="block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--violet)"></span>
+          <span class="eyebrow mt-3 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-[11px]">Review 9 scopes →</span>
         </div>
       </a>
     </li>
-    <li class="reveal bg-background" style="transition-delay:100ms">
-      <a href="services.html#service-03" class="group flex h-full flex-col justify-between gap-10 p-6 transition-colors hover:bg-secondary lg:p-7">
-        <div class="flex items-start justify-between">
-          <span class="font-mono text-xs font-medium" style="color:var(--forest)">03</span>
+    <li class="reveal bg-background flex flex-col" style="transition-delay:100ms">
+      <a href="services.html#service-03" class="group flex h-full flex-col p-6 transition-colors hover:bg-secondary lg:p-7">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs font-semibold" style="color:var(--forest)">03</span>
           <span aria-hidden="true" class="h-2 w-2 rounded-full transition-transform group-hover:scale-125" style="background-color:var(--forest)"></span>
         </div>
-        <div>
-          <h3 class="text-xl leading-snug font-normal">Capital Market Services</h3>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-2">We guide companies through raising capital and staying listed. Our work covers the SEBI framework, from IPO readiness to ongoing compliance as a listed entity.</p>
-          <span class="mt-4 block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--forest)"></span>
-          <span class="eyebrow mt-4 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100">Review 9 scopes →</span>
+        <div class="mt-7 flex flex-col">
+          <h3 class="text-xl leading-snug font-normal text-foreground service-card-title flex items-start" style="min-height:3.5rem">Capital Market Services</h3>
+          <p class="mt-3 text-xs leading-relaxed text-muted-foreground line-clamp-3 service-card-desc" style="min-height:4.25rem">We guide companies through raising capital and staying listed. Our work covers the SEBI framework, from IPO readiness to ongoing compliance as a listed entity.</p>
+        </div>
+        <div class="mt-auto pt-6">
+          <span class="block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--forest)"></span>
+          <span class="eyebrow mt-3 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-[11px]">Review 9 scopes →</span>
         </div>
       </a>
     </li>
-    <li class="reveal bg-background" style="transition-delay:150ms">
-      <a href="services.html#service-04" class="group flex h-full flex-col justify-between gap-10 p-6 transition-colors hover:bg-secondary lg:p-7">
-        <div class="flex items-start justify-between">
-          <span class="font-mono text-xs font-medium" style="color:var(--accent)">04</span>
+    <li class="reveal bg-background flex flex-col" style="transition-delay:150ms">
+      <a href="services.html#service-04" class="group flex h-full flex-col p-6 transition-colors hover:bg-secondary lg:p-7">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs font-semibold" style="color:var(--accent)">04</span>
           <span aria-hidden="true" class="h-2 w-2 rounded-full transition-transform group-hover:scale-125" style="background-color:var(--accent)"></span>
         </div>
-        <div>
-          <h3 class="text-xl leading-snug font-normal">GST Services</h3>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-2">Our GST support runs from registration to litigation. It keeps businesses compliant and their input tax credit protected, and helps them prepare for notices from the department.</p>
-          <span class="mt-4 block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--accent)"></span>
-          <span class="eyebrow mt-4 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100">Review 8 scopes →</span>
+        <div class="mt-7 flex flex-col">
+          <h3 class="text-xl leading-snug font-normal text-foreground service-card-title flex items-start" style="min-height:3.5rem">GST Services</h3>
+          <p class="mt-3 text-xs leading-relaxed text-muted-foreground line-clamp-3 service-card-desc" style="min-height:4.25rem">Our GST support runs from registration to litigation. It keeps businesses compliant and their input tax credit protected, and helps them prepare for notices from the department.</p>
+        </div>
+        <div class="mt-auto pt-6">
+          <span class="block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--accent)"></span>
+          <span class="eyebrow mt-3 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-[11px]">Review 8 scopes →</span>
         </div>
       </a>
     </li>
-    <li class="reveal bg-background" style="transition-delay:200ms">
-      <a href="services.html#service-05" class="group flex h-full flex-col justify-between gap-10 p-6 transition-colors hover:bg-secondary lg:p-7">
-        <div class="flex items-start justify-between">
-          <span class="font-mono text-xs font-medium" style="color:var(--coral)">05</span>
+    <li class="reveal bg-background flex flex-col" style="transition-delay:200ms">
+      <a href="services.html#service-05" class="group flex h-full flex-col p-6 transition-colors hover:bg-secondary lg:p-7">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs font-semibold" style="color:var(--coral)">05</span>
           <span aria-hidden="true" class="h-2 w-2 rounded-full transition-transform group-hover:scale-125" style="background-color:var(--coral)"></span>
         </div>
-        <div>
-          <h3 class="text-xl leading-snug font-normal">IPR Services</h3>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-2">We help businesses secure, manage and enforce their intellectual property, so that their brands, creative works and innovations remain protected business assets.</p>
-          <span class="mt-4 block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--coral)"></span>
-          <span class="eyebrow mt-4 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100">Review 9 scopes →</span>
+        <div class="mt-7 flex flex-col">
+          <h3 class="text-xl leading-snug font-normal text-foreground service-card-title flex items-start" style="min-height:3.5rem">IPR Services</h3>
+          <p class="mt-3 text-xs leading-relaxed text-muted-foreground line-clamp-3 service-card-desc" style="min-height:4.25rem">We help businesses secure, manage and enforce their intellectual property, so that their brands, creative works and innovations remain protected business assets.</p>
+        </div>
+        <div class="mt-auto pt-6">
+          <span class="block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--coral)"></span>
+          <span class="eyebrow mt-3 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-[11px]">Review 9 scopes →</span>
         </div>
       </a>
     </li>
-    <li class="reveal bg-background" style="transition-delay:250ms">
-      <a href="services.html#service-06" class="group flex h-full flex-col justify-between gap-10 p-6 transition-colors hover:bg-secondary lg:p-7">
-        <div class="flex items-start justify-between">
-          <span class="font-mono text-xs font-medium" style="color:var(--violet)">06</span>
+    <li class="reveal bg-background flex flex-col" style="transition-delay:250ms">
+      <a href="services.html#service-06" class="group flex h-full flex-col p-6 transition-colors hover:bg-secondary lg:p-7">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs font-semibold" style="color:var(--violet)">06</span>
           <span aria-hidden="true" class="h-2 w-2 rounded-full transition-transform group-hover:scale-125" style="background-color:var(--violet)"></span>
         </div>
-        <div>
-          <h3 class="text-xl leading-snug font-normal">Legal Services</h3>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-2">We represent clients before tribunals and regulators and draft the documents their business relies on. Our corporate law advice is precise and practical.</p>
-          <span class="mt-4 block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--violet)"></span>
-          <span class="eyebrow mt-4 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100">Review 8 scopes →</span>
+        <div class="mt-7 flex flex-col">
+          <h3 class="text-xl leading-snug font-normal text-foreground service-card-title flex items-start" style="min-height:3.5rem">Legal Services</h3>
+          <p class="mt-3 text-xs leading-relaxed text-muted-foreground line-clamp-3 service-card-desc" style="min-height:4.25rem">We represent clients before tribunals and regulators and draft the documents their business relies on. Our corporate law advice is precise and practical.</p>
+        </div>
+        <div class="mt-auto pt-6">
+          <span class="block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--violet)"></span>
+          <span class="eyebrow mt-3 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-[11px]">Review 8 scopes →</span>
         </div>
       </a>
     </li>
-    <li class="reveal bg-background" style="transition-delay:300ms">
-      <a href="services.html#service-07" class="group flex h-full flex-col justify-between gap-10 p-6 transition-colors hover:bg-secondary lg:p-7">
-        <div class="flex items-start justify-between">
-          <span class="font-mono text-xs font-medium" style="color:var(--forest)">07</span>
+    <li class="reveal bg-background flex flex-col" style="transition-delay:300ms">
+      <a href="services.html#service-07" class="group flex h-full flex-col p-6 transition-colors hover:bg-secondary lg:p-7">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs font-semibold" style="color:var(--forest)">07</span>
           <span aria-hidden="true" class="h-2 w-2 rounded-full transition-transform group-hover:scale-125" style="background-color:var(--forest)"></span>
         </div>
-        <div>
-          <h3 class="text-xl leading-snug font-normal">Social Security & HR Laws</h3>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-2">We help employers meet their obligations under India's labour codes and social security laws. That reduces risk and supports fair, compliant workplaces.</p>
-          <span class="mt-4 block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--forest)"></span>
-          <span class="eyebrow mt-4 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100">Review 9 scopes →</span>
+        <div class="mt-7 flex flex-col">
+          <h3 class="text-xl leading-snug font-normal text-foreground service-card-title flex items-start" style="min-height:3.5rem">Social Security & HR Laws</h3>
+          <p class="mt-3 text-xs leading-relaxed text-muted-foreground line-clamp-3 service-card-desc" style="min-height:4.25rem">We help employers meet their obligations under India's labour codes and social security laws. That reduces risk and supports fair, compliant workplaces.</p>
+        </div>
+        <div class="mt-auto pt-6">
+          <span class="block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--forest)"></span>
+          <span class="eyebrow mt-3 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-[11px]">Review 9 scopes →</span>
         </div>
       </a>
     </li>
-    <li class="reveal bg-background" style="transition-delay:350ms">
-      <a href="services.html#service-08" class="group flex h-full flex-col justify-between gap-10 p-6 transition-colors hover:bg-secondary lg:p-7">
-        <div class="flex items-start justify-between">
-          <span class="font-mono text-xs font-medium" style="color:var(--accent)">08</span>
+    <li class="reveal bg-background flex flex-col" style="transition-delay:350ms">
+      <a href="services.html#service-08" class="group flex h-full flex-col p-6 transition-colors hover:bg-secondary lg:p-7">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-xs font-semibold" style="color:var(--accent)">08</span>
           <span aria-hidden="true" class="h-2 w-2 rounded-full transition-transform group-hover:scale-125" style="background-color:var(--accent)"></span>
         </div>
-        <div>
-          <h3 class="text-xl leading-snug font-normal">Start-Up Services</h3>
-          <p class="mt-2 text-xs leading-relaxed text-muted-foreground line-clamp-2">We support founders from idea to investment. We help them choose the right structure, build compliance into the company from the start and raise funds with confidence.</p>
-          <span class="mt-4 block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--accent)"></span>
-          <span class="eyebrow mt-4 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100">Review 9 scopes →</span>
+        <div class="mt-7 flex flex-col">
+          <h3 class="text-xl leading-snug font-normal text-foreground service-card-title flex items-start" style="min-height:3.5rem">Start-Up Services</h3>
+          <p class="mt-3 text-xs leading-relaxed text-muted-foreground line-clamp-3 service-card-desc" style="min-height:4.25rem">We support founders from idea to investment. We help them choose the right structure, build compliance into the company from the start and raise funds with confidence.</p>
+        </div>
+        <div class="mt-auto pt-6">
+          <span class="block h-0.5 w-0 rounded-full transition-all duration-500 group-hover:w-full" style="background-color:var(--accent)"></span>
+          <span class="eyebrow mt-3 block text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-[11px]">Review 9 scopes →</span>
         </div>
       </a>
     </li>
