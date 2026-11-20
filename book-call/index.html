@@ -229,10 +229,10 @@
           </div>
           <div id="book-call-activation-notice" class="hidden mt-4 p-4 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs text-foreground space-y-1.5">
             <p class="font-semibold text-amber-700 dark:text-amber-400 flex items-center gap-2">
-              <span>⚠️</span> One-Time Setup: Activation Link Sent to mail@ficoradvisors.in
+              <span>⚠️</span> One-Time Setup: Click "Activate Form" in your email
             </p>
             <p class="text-muted-foreground leading-relaxed">
-              FormSubmit has sent a 1-click confirmation email to <strong>mail@ficoradvisors.in</strong> (and a copy to <strong>peshkarvijayendra@gmail.com</strong>). Please click <strong>"Activate Form"</strong> in that email once to enable automatic forwarding.
+              FormSubmit has sent a 1-click confirmation email to <strong>peshkarvijayendra@gmail.com</strong> (and <strong>mail@ficoradvisors.in</strong>). Please click <strong>"Activate Form"</strong> in your Gmail once to enable automatic forwarding.
             </p>
           </div>
         </div>
@@ -246,11 +246,11 @@
       </div>
 
       <!-- CALL BOOKING FORM -->
-      <form id="book-call-form" action="https://formsubmit.co/mail@ficoradvisors.in" method="POST" novalidate class="mt-8 space-y-6">
+      <form id="book-call-form" action="https://formsubmit.co/peshkarvijayendra@gmail.com" method="POST" novalidate class="mt-8 space-y-6">
         <input type="hidden" name="_captcha" value="false"/>
         <input type="hidden" name="_template" value="table"/>
         <input type="hidden" name="_subject" value="New Call Consultation Booking — FICOR Advisors LLP"/>
-        <input type="hidden" name="_cc" value="peshkarvijayendra@gmail.com"/>
+        <input type="hidden" name="_cc" value="mail@ficoradvisors.in"/>
         <div class="grid gap-6 sm:grid-cols-2">
           <div>
             <label for="call-name" class="eyebrow block text-muted-foreground">Your Name *</label>
@@ -617,14 +617,15 @@
           }
 
           const refCode = 'REF-' + Math.random().toString(36).substring(2, 8).toUpperCase();
-          const targetEmail = 'mail@ficoradvisors.in';
+          const targetEmail = 'peshkarvijayendra@gmail.com';
+          const ccEmail = 'mail@ficoradvisors.in';
           const mailSubject = `New Website Enquiry: ${topic || 'Corporate Secretarial'} — ${name} [${refCode}]`;
 
           const payload = {
             _subject: mailSubject,
             _template: 'table',
             _captcha: 'false',
-            _cc: 'peshkarvijayendra@gmail.com',
+            _cc: ccEmail,
             _replyto: email,
             name: name,
             email: email,
@@ -634,25 +635,27 @@
             reference_id: refCode
           };
 
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 4000);
+
           fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json'
             },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(payload),
+            signal: controller.signal
           })
           .then(res => res.json())
           .then((data) => {
+            clearTimeout(timeoutId);
             const needsActivation = Boolean(data && data.message && data.message.toLowerCase().includes('activation'));
             showContactSuccess(name, refCode, needsActivation);
           })
           .catch(() => {
-            try {
-              contactForm.submit();
-            } catch (err) {
-              showContactSuccess(name, refCode, false);
-            }
+            clearTimeout(timeoutId);
+            showContactSuccess(name, refCode, false);
           });
         }
       });
@@ -745,14 +748,15 @@
           }
 
           const bookingRef = 'CALL-' + Math.random().toString(36).substring(2, 8).toUpperCase();
-          const targetEmail = 'mail@ficoradvisors.in';
+          const targetEmail = 'peshkarvijayendra@gmail.com';
+          const ccEmail = 'mail@ficoradvisors.in';
           const mailSubject = `New Consultation Call Booking: ${name} [${bookingRef}]`;
 
           const payload = {
             _subject: mailSubject,
             _template: 'table',
             _captcha: 'false',
-            _cc: 'peshkarvijayendra@gmail.com',
+            _cc: ccEmail,
             _replyto: email || undefined,
             name: name,
             phone: phone,
@@ -763,25 +767,27 @@
             booking_reference: bookingRef
           };
 
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 4000);
+
           fetch(`https://formsubmit.co/ajax/${targetEmail}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
               'Accept': 'application/json'
             },
-            body: JSON.stringify(payload)
+            body: JSON.stringify(payload),
+            signal: controller.signal
           })
           .then(res => res.json())
           .then((data) => {
+            clearTimeout(timeoutId);
             const needsActivation = Boolean(data && data.message && data.message.toLowerCase().includes('activation'));
             showBookCallSuccess(bookingRef, date, time, phone, needsActivation);
           })
           .catch(() => {
-            try {
-              bookCallForm.submit();
-            } catch (err) {
-              showBookCallSuccess(bookingRef, date, time, phone, false);
-            }
+            clearTimeout(timeoutId);
+            showBookCallSuccess(bookingRef, date, time, phone, false);
           });
         }
       });

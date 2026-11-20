@@ -603,10 +603,10 @@ function getContactContent(relPath = "") {
           </div>
           <div id="contact-activation-notice" class="hidden mt-4 p-4 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs text-foreground space-y-1.5">
             <p class="font-semibold text-amber-700 dark:text-amber-400 flex items-center gap-2">
-              <span>⚠️</span> One-Time Setup: Activation Link Sent to ${EMAIL}
+              <span>⚠️</span> One-Time Setup: Click "Activate Form" in your email
             </p>
             <p class="text-muted-foreground leading-relaxed">
-              FormSubmit has sent a 1-click confirmation email to <strong>${EMAIL}</strong> (and a copy to <strong>peshkarvijayendra@gmail.com</strong>). Please click <strong>"Activate Form"</strong> in that email once so future submissions route automatically to your inbox.
+              FormSubmit has sent a 1-click confirmation email to <strong>peshkarvijayendra@gmail.com</strong> (and <strong>${EMAIL}</strong>). Please click <strong>"Activate Form"</strong> in your Gmail once to enable instant automatic forwarding.
             </p>
           </div>
         </div>
@@ -620,11 +620,11 @@ function getContactContent(relPath = "") {
       </div>
 
       <!-- FORM -->
-      <form id="contact-form" action="https://formsubmit.co/${EMAIL}" method="POST" novalidate class="space-y-6">
+      <form id="contact-form" action="https://formsubmit.co/peshkarvijayendra@gmail.com" method="POST" novalidate class="space-y-6">
         <input type="hidden" name="_captcha" value="false"/>
         <input type="hidden" name="_template" value="table"/>
         <input type="hidden" name="_subject" value="New Website Enquiry — FICOR Advisors LLP"/>
-        <input type="hidden" name="_cc" value="peshkarvijayendra@gmail.com"/>
+        <input type="hidden" name="_cc" value="${EMAIL}"/>
         <div class="grid gap-6 sm:grid-cols-2">
           <div>
             <label for="name" class="eyebrow block text-muted-foreground">Name *</label>
@@ -803,10 +803,10 @@ function getBookCallContent(relPath = "") {
           </div>
           <div id="book-call-activation-notice" class="hidden mt-4 p-4 rounded-lg bg-amber-500/10 border border-amber-500/30 text-xs text-foreground space-y-1.5">
             <p class="font-semibold text-amber-700 dark:text-amber-400 flex items-center gap-2">
-              <span>⚠️</span> One-Time Setup: Activation Link Sent to ${EMAIL}
+              <span>⚠️</span> One-Time Setup: Click "Activate Form" in your email
             </p>
             <p class="text-muted-foreground leading-relaxed">
-              FormSubmit has sent a 1-click confirmation email to <strong>${EMAIL}</strong> (and a copy to <strong>peshkarvijayendra@gmail.com</strong>). Please click <strong>"Activate Form"</strong> in that email once to enable automatic forwarding.
+              FormSubmit has sent a 1-click confirmation email to <strong>peshkarvijayendra@gmail.com</strong> (and <strong>${EMAIL}</strong>). Please click <strong>"Activate Form"</strong> in your Gmail once to enable automatic forwarding.
             </p>
           </div>
         </div>
@@ -820,11 +820,11 @@ function getBookCallContent(relPath = "") {
       </div>
 
       <!-- CALL BOOKING FORM -->
-      <form id="book-call-form" action="https://formsubmit.co/${EMAIL}" method="POST" novalidate class="mt-8 space-y-6">
+      <form id="book-call-form" action="https://formsubmit.co/peshkarvijayendra@gmail.com" method="POST" novalidate class="mt-8 space-y-6">
         <input type="hidden" name="_captcha" value="false"/>
         <input type="hidden" name="_template" value="table"/>
         <input type="hidden" name="_subject" value="New Call Consultation Booking — FICOR Advisors LLP"/>
-        <input type="hidden" name="_cc" value="peshkarvijayendra@gmail.com"/>
+        <input type="hidden" name="_cc" value="${EMAIL}"/>
         <div class="grid gap-6 sm:grid-cols-2">
           <div>
             <label for="call-name" class="eyebrow block text-muted-foreground">Your Name *</label>
